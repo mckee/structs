@@ -1,7 +1,10 @@
 // Package structs contains various utilities functions to work with structs.
 package structs
 
-import "reflect"
+import (
+	"reflect"
+	"strings"
+)
 
 var (
 	// DefaultTagName is the default tag name for struct fields which provides
@@ -99,7 +102,7 @@ func (s *Struct) Map() map[string]interface{} {
 			finalVal = val.Interface()
 		}
 
-		out[name] = finalVal
+		out[strings.ToLower(name)] = finalVal
 	}
 
 	return out
